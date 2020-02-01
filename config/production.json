@@ -1,0 +1,40 @@
+{
+  "host": "madman-trivia-api.herokuapp.com/",
+  "port": "PORT",
+  "public": "../public/",
+  "paginate": {
+    "default": 10,
+    "max": 50
+  },
+  "authentication": {
+    "entity": "user",
+    "service": "users",
+    "secret": "GT98TZxYNNA1g+kPvCZhjAOafjY=",
+    "authStrategies": [
+      "jwt",
+      "local"
+    ],
+    "jwtOptions": {
+      "header": {
+        "typ": "access"
+      },
+      "audience": "https://madman-trivia-api.herokuapp.com",
+      "issuer": "feathers",
+      "algorithm": "HS256",
+      "expiresIn": "1d"
+    },
+    "local": {
+      "usernameField": "email",
+      "passwordField": "password"
+    },
+    "oauth": {
+      "redirect": "/",
+      "github": {
+        "key": "GH_CLIENT_ID",
+        "secret": "GH_CLIENT_SECRET"
+      }
+    }
+  },
+  "postgres": "DATABASE_URL"
+}
+
