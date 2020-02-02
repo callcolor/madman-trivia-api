@@ -54,6 +54,8 @@
     "cors": "^2.8.5",
     "feathers-sequelize": "^6.1.0",
     "helmet": "^3.21.2",
+    "html-entities": "^1.2.1",
+    "js-base64": "^2.5.1",
     "mocha": "^6.2.2",
     "nodemon": "^2.0.2",
     "pg": "^7.18.1",
@@ -65,8 +67,7 @@
     "ts-node-dev": "^1.0.0-pre.44",
     "tslint": "^5.20.1",
     "typescript": "^3.7.5",
-    "winston": "^3.2.1",
-    "js-base64": "^2.5.1"
+    "winston": "^3.2.1"
   },
   "devDependencies": {}
 }

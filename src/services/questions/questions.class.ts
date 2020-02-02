@@ -6,6 +6,13 @@ import questionsHooks from './questions.hooks';
 const shuffle = require('shuffle-array');
 const md5 = require("blueimp-md5");
 var Base64 = require('js-base64').Base64;
+const Entities = require('html-entities').AllHtmlEntities;
+
+const entities = new Entities();
+
+const decode = function(str: string) {
+  return entities.decode(Base64.decode(str));
+}
 
 export class Questions extends Service {
   constructor(options: Partial<SequelizeServiceOptions>, app: Application) {
@@ -21,9 +28,9 @@ export class Questions extends Service {
       const tdbq = response.data.results[0];
       const question = {
         _id: md5(JSON.stringify(tdbq)),
-        question: Base64.decode(tdbq.question),
-        answers: shuffle(tdbq.incorrect_answers.concat(tdbq.correct_answer)).map((answer: string) => Base64.decode(answer)),
-        correctAnswerInsecure: Base64.decode(tdbq.correct_answer),
+        question: decode(tdbq.question),
+        answers: shuffle(tdbq.incorrect_answers.concat(tdbq.correct_answer)).map((answer: string) => decode(answer)),
+        correctAnswerInsecure: decode(tdbq.correct_answer),
       }
 
       //TODO: Persist question
