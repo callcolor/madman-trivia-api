@@ -1,1 +1,1 @@
-web: node lib/
+web: npm start
